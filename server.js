@@ -56,7 +56,7 @@ app.get('/', (req, res) => {
 //api router
 app.use('/api', router);
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8080;
 
 app.listen(
   PORT,
