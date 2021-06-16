@@ -14,7 +14,6 @@ import router from './routes/index';
 
 dotenv.config();
 
-//connect to database
 connectDB();
 
 const app = express();
