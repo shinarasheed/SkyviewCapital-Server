@@ -1,4 +1,5 @@
 import express from 'express';
+import dotenv from 'dotenv';
 import morgan from 'morgan';
 import rateLimit from 'express-rate-limit';
 import helmet from 'helmet';
@@ -7,8 +8,9 @@ import xss from 'xss-clean';
 import hpp from 'hpp';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
+import 'colors';
 import connectDB from './config/db';
-import router from './routes';
+import router from './routes/index';
 
 dotenv.config();
 
