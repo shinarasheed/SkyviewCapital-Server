@@ -1,4 +1,4 @@
-import User from '../models/UserModel';
+import User from '../models/User';
 import axios from 'axios';
 
 const createAccount = async (req, res) => {
