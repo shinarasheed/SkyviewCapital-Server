@@ -1,19 +1,11 @@
 import mongoose from 'mongoose';
-import dotenv from 'dotenv';
-
-dotenv.config();
-
-const connectionString =
-  process.env.NODE_ENV === 'development'
-    ? process.env.MONGO_URI_DEV
-    : process.env.MONGO_URI_PROD;
-
-// mongodb+srv://rasheedopeyemi:opeyemi22@@cluster0.9m6fq.mongodb.net/skyviewcapital?retryWrites=true&w=majority
 
 async function connectDb() {
   try {
     const conn = await mongoose.connect(
-      'mongodb+srv://rasheedopeyemi:opeyemi22@@cluster0.9m6fq.mongodb.net/skyviewcapital?retryWrites=true&w=majority',
+      process.env.NODE_ENV === 'production'
+        ? 'mongodb+srv://rasheedopeyemi:opeyemi22@@cluster0.9m6fq.mongodb.net/skyviewcapital?retryWrites=true&w=majority'
+        : 'mongodb://localhost:27017/skyviewcapital',
       {
         useNewUrlParser: true,
         useUnifiedTopology: true,
