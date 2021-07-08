@@ -3,10 +3,10 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-// const connectionString =
-//   process.env.NODE_ENV === 'development'
-//     ? process.env.MONGO_URI_DEV
-//     : process.env.MONGO_URI_PROD;
+const connectionString =
+  process.env.NODE_ENV === 'development'
+    ? process.env.MONGO_URI_DEV
+    : process.env.MONGO_URI_PROD;
 
 async function connectDb() {
   try {

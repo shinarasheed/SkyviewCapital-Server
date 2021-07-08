@@ -105,6 +105,17 @@ const createAccount = async (req, res) => {
   }
 };
 
+const getUsers = async (req, res) => {
+  try {
+    const users = await User.find().select('surName firstName otherName -_id');
+    res.status(200).json({ status: 'success', count: users.length, users });
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).json({ status: 'error', message: 'server error' });
+  }
+};
+
 export default {
   createAccount,
+  getUsers,
 };

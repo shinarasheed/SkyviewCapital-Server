@@ -1,5 +1,5 @@
 import express from 'express';
-import registerController from '../controllers/registerController';
+import userController from '../controllers/userController';
 
 import { upload } from '../utils/cloudinary';
 
@@ -15,7 +15,8 @@ router
       { name: 'utilitybill' },
       { name: 'bankstatement' },
     ]),
-    registerController.createAccount
-  );
+    userController.createAccount
+  )
+  .get(userController.getUsers);
 
 export default router;
