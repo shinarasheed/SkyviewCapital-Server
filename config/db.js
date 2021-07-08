@@ -8,14 +8,19 @@ const connectionString =
     ? process.env.MONGO_URI_DEV
     : process.env.MONGO_URI_PROD;
 
+// mongodb+srv://rasheedopeyemi:opeyemi22@@cluster0.9m6fq.mongodb.net/skyviewcapital?retryWrites=true&w=majority
+
 async function connectDb() {
   try {
-    const conn = await mongoose.connect(connectionString, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useCreateIndex: true,
-      useFindAndModify: false,
-    });
+    const conn = await mongoose.connect(
+      'mongodb+srv://rasheedopeyemi:opeyemi22@@cluster0.9m6fq.mongodb.net/skyviewcapital?retryWrites=true&w=majority',
+      {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useCreateIndex: true,
+        useFindAndModify: false,
+      }
+    );
     console.log(`Mongodb connected: ${conn.connection.host}`.cyan.underline);
   } catch (error) {
     console.log(`Error: ${error.message}`.red.underline.bold);
