@@ -3,11 +3,22 @@ import axios from 'axios';
 
 const createAccount = async (req, res) => {
   try {
-    const identitycard = req.files['identitycard'][0].path;
-    const passport = req.files['passport'][0].path;
-    const signature = req.files['signature'][0].path;
-    const utilitybill = req.files['utilitybill'][0].path;
-    const bankstatement = req.files['bankstatement'][0].path;
+    const identitycard = req.files['identitycard']
+      ? req.files['identitycard'][0].path
+      : '';
+    const passport = req.files['passport'] ? req.files['passport'][0].path : '';
+    const signature = req.files['signature']
+      ? req.files['signature'][0].path
+      : '';
+    const utilitybill = req.files['utilitybill']
+      ? req.files['utilitybill'][0].path
+      : '';
+    const bankstatement = req.files['bankstatement']
+      ? req.files['bankstatement'][0].path
+      : '';
+    const incorporationcertificate = req.files['incorporationcertificate']
+      ? req.files['incorporationcertificate'][0].path
+      : '';
 
     const data = await User.create(req.body);
 
@@ -78,6 +89,7 @@ const createAccount = async (req, res) => {
         idForm,
         idNumber,
         idExpireDate,
+        incorporationcertificate,
         passport,
         signature,
         utilitybill,

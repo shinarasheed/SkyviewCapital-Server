@@ -14,6 +14,7 @@ router
       { name: 'signature' },
       { name: 'utilitybill' },
       { name: 'bankstatement' },
+      { name: 'incorporationcertificate' },
     ]),
     userController.createAccount
   )
